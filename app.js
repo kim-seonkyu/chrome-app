@@ -8,6 +8,7 @@
 // 6. .css 와 .html 파일은 수정하지 마세요.
 // 7.모든 함수 핸들러는 superEventHandler내부에 작성해야 합니다.
 // 8.모든 조건이 충족되지 못하면 ❌를 받습니다.
+
 let title = document.getElementById("title");
 let colors = ["DarkCyan", "DodgerBlue", "Crimson", "DarkOrchid"];
 
