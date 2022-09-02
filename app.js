@@ -9,11 +9,11 @@ function handleWindowSize() {
   let width = window.innerWidth;
 
   if (width > 800) {
-    body.style.backgroundColor = "DarkOrange";
+    body.style.backgroundColor = "#EEBC12";
   } else if (width <= 800 && width >= 600) {
-    body.style.backgroundColor = "DarkOrchid";
+    body.style.backgroundColor = "#904FAD";
   } else {
-    body.style.backgroundColor = "DodgerBlue";
+    body.style.backgroundColor = "#2E8CD5";
   }
 }
 
