@@ -1,20 +1,30 @@
-// Use if/else etc.
-// JS Challenge 2
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-let body = document.querySelector("body");
-let h1 = document.querySelector("h1");
-h1.style.color = "white";
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
-function handleWindowSize() {
-  let width = window.innerWidth;
-
-  if (width > 800) {
-    body.style.backgroundColor = "#EEBC12";
-  } else if (width <= 800 && width >= 600) {
-    body.style.backgroundColor = "#904FAD";
-  } else {
-    body.style.backgroundColor = "#2E8CD5";
-  }
+function ondLoginSubmit(event) {
+  event.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME);
+  const username = loginInput.value;
+  localStorage.setItem(USERNAME_KEY, username);
+  paintGreetings(username);
 }
 
-window.addEventListener("resize", handleWindowSize);
+function paintGreetings(username) {
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if (savedUsername === null) {
+  // show the form
+  loginForm.classList.remove(HIDDEN_CLASSNAME);
+  loginForm.addEventListener("submit", ondLoginSubmit);
+} else {
+  // show the greetings
+  paintGreetings(savedUsername);
+}
